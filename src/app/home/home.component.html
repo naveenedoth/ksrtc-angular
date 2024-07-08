@@ -1,0 +1,13 @@
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <h1>Dashboard</h1>
+        <div>
+            <input type="file" (change)="onFileSelected($event)">
+            <button (click)="uploadFile()" class="gen-button">Generate</button>
+            <button (click)="loadTripsComponent()">Load Trips Component</button>
+
+        </div>          
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<router-outlet/>

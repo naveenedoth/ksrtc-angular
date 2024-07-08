@@ -1,0 +1,39 @@
+header {
+  background-color: rgb(255, 255, 255);
+  padding: 1%;
+  height: 5%;
+  width: auto;
+  border-bottom: 2px solid grey;
+}
+
+header a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0%;
+  font-family: Bahnschrift, sans-serif;
+  cursor: pointer;
+}
+
+mat-icon {
+  color: maroon;
+  font-size: 25px;
+}
+
+.title {
+  margin-left: 2%;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+/* .bus_icon {
+
+}
+
+.admin_icon {
+
+} */
+
+.admin {
+  margin-left: 80%;
+  font-size: 150%;
+}

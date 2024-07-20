@@ -6,26 +6,24 @@ import { TripsComponent } from '../trips/trips.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ MatSidenavModule, RouterOutlet, RouterLink, RouterLinkActive ],
+  imports: [MatSidenavModule, RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css'] // Corrected styleUrls instead of styleUrl
 })
-
-
-export class HomeComponent implements OnInit{
-
+export class HomeComponent implements OnInit {
   tripsData = [
     { name: 'Trip 1', destination: 'Beach' },
     { name: 'Trip 2', destination: 'Mountains' },
   ];
 
+  selectedFile: File | null = null; // Initialize selectedFile to null
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  selectedFile: File;
-  onFileSelected(event): void {
-    this.selectedFile = event.target.files[0];
+  onFileSelected(event: any): void { // Explicitly type event as any
+    this.selectedFile = event.target.files[0] || null;
   }
 
   uploadFile(): void {
@@ -34,10 +32,12 @@ export class HomeComponent implements OnInit{
       this.selectedFile = null;
     }
   }
+
   gotoTrips(): void {
     this.router.navigate(['/trips'], { state: { trips: this.tripsData } });
   }
-  loadTripsComponent() {
+
+  loadTripsComponent(): void {
     this.router.navigateByUrl('/trips');
   }
-} 
+}
